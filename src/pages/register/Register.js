@@ -10,13 +10,13 @@ import { formValidationSchema } from "../../utils/AllValidationSchemas/RegisterS
 const Register = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  let { error, successMessage } = useSelector((state) => state?.reducer);
-  console.log(11, error);
+  let { error, successMessage } = useSelector((state) => state?.AuthSlice);
+  console.log(11, error?.response?.data?.error);
   console.log(22, successMessage);
 
   useEffect(() => {
     if (error) {
-      toast.error(error.error);
+      toast.error(error?.response?.data?.error);
     }
     if (successMessage) {
       toast.success(successMessage);

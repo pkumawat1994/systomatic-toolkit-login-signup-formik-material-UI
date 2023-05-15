@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AuthLogin, AuthRegister } from ".";
 // Reducer -Opretaion  -->
 
-export const AuthSlice = createSlice({
+const AuthSlice = createSlice({
   name: "AuthReducer",
   initialState: {
     token: "",
@@ -37,9 +37,9 @@ export const AuthSlice = createSlice({
         state.loading = "true";
       })
       .addCase(AuthLogin.fulfilled, (state, action) => {
-        // console.log(11, action?.payload);
-        localStorage.setItem("userToken", action?.payload);
-        state.token = action?.payload;
+        console.log(11, action?.payload?.token);
+        localStorage.setItem("userToken", action?.payload?.token);
+        state.token = action?.payload?.token;
         state.LoginSuccess = action?.payload;
         state.error = "";
       })
@@ -50,3 +50,4 @@ export const AuthSlice = createSlice({
       });
   },
 });
+export default AuthSlice.reducer;

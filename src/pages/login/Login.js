@@ -9,7 +9,7 @@ import { loginSchema } from "../../utils/AllValidationSchemas/LoginSchema";
 const Login = () => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  let { error, LoginSuccess } = useSelector((state) => state?.reducer);
+  let { error, LoginSuccess } = useSelector((state) => state?.AuthSlice);
   console.log(11, error);
   console.log(22, LoginSuccess);
 
